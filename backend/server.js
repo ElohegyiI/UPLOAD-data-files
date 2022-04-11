@@ -235,7 +235,7 @@ app.post("/", (req, res) => {
 
         console.dir(picture);
 
-        picture.mv(uploads + picture.name, error => {
+        picture.mv(uploads + picture.name, error => {  
 
             return res.status(500).send(error);
 

@@ -37,6 +37,8 @@ function loadEvent() {
     formElement.addEventListener('submit', e => {
 
         e.preventDefault();
+        console.dir(e);
+
 
         const formData = new FormData();
 
@@ -46,14 +48,16 @@ function loadEvent() {
 
         const fetchSettings = {
             method: 'POST',
-            body: FormData
+            body: formData
         }
     
         fetch('/', fetchSettings)
 
-        .then(async data => {
+        .then( async data => {
 
+            console.dir(data)
             if ( data.status === 200 ) {
+                
                 const res = await data.json()
 
             e.target.outerHTML = `<img src="upload/${res.pictureName}">`
